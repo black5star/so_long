@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 09:56:33 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/04/27 10:01:25 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/05 09:51:20 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,9 @@ t_img	*path_init(t_game *game)
 		(game->mlx, "./textures/wall.xpm", &x, &y);
 	game->img->space = mlx_xpm_file_to_image
 		(game->mlx, "./textures/space.xpm", &x, &y);
+	if (!game->img->coin || !game->img->exit || !game->img->pf
+		|| !game->img->pl || !game->img->pr || !game->img->space
+		|| !game->img->space || !game->img->wall)
+		img_err("Error : .xpm is empty.\n", game);
 	return (game->img);
 }

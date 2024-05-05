@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:01:45 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/04/27 15:00:45 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/05 09:34:17 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,19 +105,19 @@ t_game	*ft_malloc(t_game *game)
 {
 	game = malloc(sizeof(t_game));
 	if (!game)
-		ft_error("Error : malloc failure.");
-	game->map = malloc(sizeof(t_map));
-	if (!game->map)
-	{
-		free(game);
-		ft_error("Error : malloc failure.");
-	}
+		ft_error("Error : failed to allocate t_game.");
 	game->img = malloc(sizeof(t_img));
 	if (!game->img)
 	{
-		free(game->map);
 		free(game);
-		ft_error("Error : malloc failure.");
+		ft_error("Error : failed to allocate t_img.");
+	}
+	game->map = malloc(sizeof(t_map));
+	if (!game->map)
+	{
+		free(game->img);
+		free(game);
+		ft_error("Error : failed to allocate t_map.");
 	}
 	game->mlx = mlx_init();
 	if (!game->mlx)
@@ -125,7 +125,7 @@ t_game	*ft_malloc(t_game *game)
 		free(game->map);
 		free(game->img);
 		free(game);
-		ft_error("Error : failure in mxl_int function.");
+		ft_error("Error : failed to initiate mxl_int function.");
 	}
 	return (game);
 }

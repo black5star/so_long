@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 21:46:07 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/04/30 17:43:10 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/05 09:53:09 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,20 @@ void	map_cheker(t_game *game)
 	}
 	dup = duplicate(game);
 	ft_floodfill(game->p_x, game->p_y, dup, 'C');
-	printf("%s\n", dup[2]);
 	ft_floodfill(game->p_x, game->p_y, dup, 'E');
 	floodcheck(dup, game);
 	free_dup(dup, game);
+}
+
+void	img_err(char *str, t_game *game)
+{
+	int	j;
+
+	j = 0;
+	while (j < game->map->y)
+		free(game->map->map[j++]);
+	free(game->map->map);
+	free(game->map);
+	free(game->img);
+	ft_error(str);
 }
