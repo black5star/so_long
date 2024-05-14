@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 12:03:33 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/04/28 18:11:20 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:00:48 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_error(char *str)
 	exit(1);
 }
 
-void	map_err(char*buffer, t_game *game, char *str)
+void	map_err(char *buffer, t_game *game, char *str)
 {
 	free(buffer);
 	free(game->img);

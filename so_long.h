@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 23:00:16 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/05/05 09:47:40 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:39:05 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,6 @@ char	*ft_strdup(const char *s1);
 void	ft_floodfill(int x, int y, char **map, char c);
 t_game	*ft_malloc(t_game *game);
 void	ft_printmoves(t_game *game);
-void	img_err(char *str, t_game *game);
+int		ft_exit(t_game *game);
 
 #endif

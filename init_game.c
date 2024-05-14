@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:01:45 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/05/05 09:34:17 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:45:28 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	map_spliting(char *buffer, t_game *game)
 		i++;
 	game->map->x = i;
 	if (game->map->x > 51 || game->map->y > 28)
-		map_err(buffer, game, "Map is too big.");
+		map_err(buffer, game, "Map is bigger than the screen.\n");
 	game->map->map = (char **)malloc((game->map->y) * sizeof (char *));
 	if (!game->map->map)
 		return ;

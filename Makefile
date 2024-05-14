@@ -8,7 +8,7 @@ OBJC = $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJC)
-	@$(CC) $(FLAGS) $(CFLAGS) $(SRCS) -o so_long
+	@$(CC) $(SRCS) -o so_long $(FLAGS) $(CFLAGS)
 	@echo "so_long is ready"
 
 .c.o:

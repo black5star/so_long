@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 09:56:33 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/05/05 09:51:20 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/14 10:37:20 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,9 @@ t_img	*path_init(t_game *game)
 	if (!game->img->coin || !game->img->exit || !game->img->pf
 		|| !game->img->pl || !game->img->pr || !game->img->space
 		|| !game->img->space || !game->img->wall)
-		img_err("Error : .xpm is empty.\n", game);
+	{
+		ft_putstr_fd("Error : .xpm is empty.\n", 1);
+		ft_free(game);
+	}
 	return (game->img);
 }

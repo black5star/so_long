@@ -6,7 +6,7 @@
 /*   By: hboustaj <hboustaj@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 23:00:04 by hboustaj          #+#    #+#             */
-/*   Updated: 2024/04/30 17:37:02 by hboustaj         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:01:46 by hboustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,13 +83,16 @@ int	main(int argc, char *argv[])
 {
 	t_game	*game;
 
-	if (argc != 2 || access(argv[1], F_OK | R_OK) == -1)
+	if (argc != 2)
 		ft_error("Error : Your program should takes two arguments.");
+	if (access(argv[1], F_OK | R_OK) == -1)
+		ft_error("Error : You don't have access to this file.");
 	check_files(argv[1]);
 	game = game_init(argv[1]);
 	map_cheker(game);
 	draw_map(game);
 	mlx_hook(game->window, 2, (1L << 0), ft_key_hook, game);
+	mlx_hook(game->window, 17, 0, ft_exit, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
